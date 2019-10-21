@@ -1,0 +1,22 @@
+TodoEntry:
+  description: "Represents a todo entry"
+  required:
+    - user
+    - title
+  properties:
+    id:
+      type: integer
+    user:
+      $ref: "../user/user.yml#/User"
+    title:
+      type: string
+    description:
+      type: string
+    date_created:
+      type: string
+      format: dateTime
+    date_updated:
+      type: string
+      format: dateTime
+    done_status:
+      type: boolean

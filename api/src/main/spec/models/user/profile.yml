@@ -1,0 +1,25 @@
+UserProfile:
+  description: "User's profile"
+  properties:
+    id:
+      type: integer
+    user:
+      $ref: "./user.yml#/User"
+    name:
+      type: string
+    pic_url:
+      type: string
+    time_zone:
+      type: string
+      enum:
+        - +04:30
+        - +03:00
+        - +02:00
+        - +01:00
+        - -11:00
+    date_created:
+      type: string
+      format: dateTime
+    date_updated:
+      type: string
+      format: dateTime

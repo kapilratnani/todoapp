@@ -1,0 +1,110 @@
+plugins {
+    id "org.openapi.generator" version "4.1.1"
+    id 'org.springframework.boot' version '2.1.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'net.ripper.todoapp'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+sourceSets.main.java.srcDirs = ['build/generated/src/main/java','src/main/java']
+
+repositories {
+    jcenter()
+}
+
+task generateUserApi(
+        type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask,
+        group: "OpenAPI Tools"){
+    verbose = true
+    generatorName = "spring"
+    inputSpec = "$projectDir/src/main/spec/userApi.yml".toString()
+    outputDir = "$buildDir/generated".toString()
+    apiPackage = "net.ripper.todoapp.api"
+    modelPackage = "net.ripper.todoapp.domain"
+    apiFilesConstrainedTo = [""]
+    modelFilesConstrainedTo = [""]
+    validateSpec = true
+    configOptions = [
+            dateLibrary: "java8",
+            library: "spring-boot",
+            interfaceOnly: true,
+            useTags: true,
+            java8:true,
+            reactive:false,
+            useBeanValidation:true,
+            performBeanValidation:true,
+            useOptional:false,
+            serviceInterface:true,
+            serviceImplementation:false,
+            hideGenerationTimestamp:true,
+            title:"TodoUserApi",
+            skipDefaultInterface:true,
+            apiFirst:false,
+            unhandledException:true
+    ]
+}
+
+task generateTodoApi(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask,
+        group: "OpenAPI Tools"){
+    verbose = true
+    generatorName = "spring"
+    inputSpec = "$projectDir/src/main/spec/todoApi.yml".toString()
+    outputDir = "$buildDir/generated".toString()
+    apiPackage = "net.ripper.todoapp.api"
+    modelPackage = "net.ripper.todoapp.domain"
+    apiFilesConstrainedTo = [""]
+    modelFilesConstrainedTo = [""]
+    validateSpec = true
+    configOptions = [
+            dateLibrary: "java8",
+            library: "spring-boot",
+            interfaceOnly: true,
+            useTags: true,
+            java8:true,
+            reactive:false,
+            useBeanValidation:true,
+            performBeanValidation:true,
+            useOptional:false,
+            serviceInterface:true,
+            serviceImplementation:false,
+            hideGenerationTimestamp:true,
+            title:"TodoUserApi",
+            skipDefaultInterface:true,
+            apiFirst:false,
+            unhandledException:true
+    ]
+}
+
+task codegen(dependsOn: ['generateTodoApi', 'generateUserApi'],
+        group: "OpenAPI Tools")
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    //compile 'org.springframework.boot:spring-boot-starter-security'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    compile "io.springfox:springfox-swagger2:2.9.2"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+    compile 'org.openapitools:jackson-databind-nullable:0.1.0'
+    compile "javax.validation:validation-api"
+    compile "io.springfox:springfox-swagger2:2.9.2"
+    compile project(':service')
+    compile project(':entities')
+
+    compile 'io.jsonwebtoken:jjwt-api:0.10.7'
+    runtime 'io.jsonwebtoken:jjwt-impl:0.10.7',
+            // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+            //'org.bouncycastle:bcprov-jdk15on:1.60',
+            'io.jsonwebtoken:jjwt-jackson:0.10.7'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+

@@ -1,0 +1,11 @@
+User:
+  description: "represents a user instance"
+  properties:
+    id:
+      type: integer
+    username:
+      type: string
+    date_created:
+      type: string
+      format: date
+

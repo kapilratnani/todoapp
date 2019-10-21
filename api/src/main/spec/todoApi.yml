@@ -1,0 +1,83 @@
+openapi: "3.0.0"
+info:
+  title: Todo entries Management API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8082/todoapp/v1
+    description: local-dev url
+tags:
+  - name: TodoV1
+    description: Todo API
+
+paths:
+  /todo:
+    post:
+      security:
+        - JWT: []
+      tags:
+        - TodoV1
+      summary: Create a todo entry
+      operationId: CreateTodo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./models/todo/todoentry.yml#/TodoEntry"
+      responses:
+        "201":
+          description: "Todo entry created"
+          content:
+            application/json:
+              schema:
+                $ref: "./models/todo/todoentry.yml#/TodoEntry"
+        "400":
+          description: "invalid data in input"
+  /todo/{id}:
+    parameters:
+      - name: id
+        description: "id of the todo entry"
+        schema:
+          type: integer
+        in: path
+        required: true
+    get:
+      tags:
+        - TodoV1
+      summary: Retreive a todo entry
+      operationId: GetTodoById
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "./models/todo/todoentry.yml#/TodoEntry"
+        "404":
+          description: entry not found
+    put:
+      tags:
+        - TodoV1
+      summary: Update a todo entry
+      operationId: UpdateTodoById
+      security:
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./models/todo/todoentry.yml#/TodoEntry"
+      responses:
+        "200":
+          description: successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: "./models/todo/todoentry.yml#/TodoEntry"
+components:
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      type: http
+

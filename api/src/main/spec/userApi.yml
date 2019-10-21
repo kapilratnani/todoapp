@@ -1,0 +1,75 @@
+openapi: "3.0.0"
+info:
+  title: User Management API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8082/todoapp/v1
+    description: local-dev url
+
+tags:
+  - name: UserV1
+    description: User api
+paths:
+  /user:
+    post:
+      description: send a username and password to register
+      summary: Register a user
+      tags:
+        - UserV1
+      operationId: RegisterUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./models/user/user_password_request.yml#/UserPasswordRequest"
+      responses:
+        "201":
+          description: Successfully created
+        "400":
+          description: Invalid Input data to create user
+    get:
+      summary: Get logged in user profile
+      operationId: "GetLoggedInUser"
+      tags:
+        - UserV1
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Profile of logged in user
+          content:
+            application/json:
+              schema:
+                $ref: "./models/user/profile.yml#/UserProfile"
+        "401":
+          description: No user logged in
+
+  /user/login:
+    post:
+      summary: Login here
+      operationId: "LoginUser"
+      tags:
+        - UserV1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "./models/user/user_password_request.yml#/UserPasswordRequest"
+      responses:
+        "200":
+          description: Login success
+          content:
+            application/json:
+              schema:
+                $ref: "./models/user/access_token_grant.yml#/AccessTokenGrant"
+        "400":
+          description: Invalid Username or Password
+
+components:
+  securitySchemes:
+    JWT:
+      scheme: bearer
+      type: http
+
+
+

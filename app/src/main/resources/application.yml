@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: todoapp
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/todoapp
+    username: user
+    password: password
+  jpa:
+    hibernate.ddl-auto: update
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: create.sql
+server:
+  port: 8083

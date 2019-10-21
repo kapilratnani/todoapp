@@ -1,0 +1,7 @@
+AccessTokenGrant:
+  description: "Token Grant"
+  required:
+    - access_token
+  properties:
+    access_token:
+      type: string
