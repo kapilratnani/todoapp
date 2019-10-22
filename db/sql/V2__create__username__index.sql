@@ -1,0 +1,1 @@
+create index todo_username_index on todo_user(username);
