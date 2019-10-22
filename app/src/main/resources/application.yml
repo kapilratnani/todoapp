@@ -19,12 +19,12 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-      javax:
-        persistence:
-          schema-generation:
-            create-source: metadata
-            scripts:
-              action: create
-              create-target: create.sql
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: create.sql
 server:
   port: 8083
