@@ -24,9 +24,12 @@ task generateUserApi(
     outputDir = "$buildDir/generated".toString()
     apiPackage = "net.ripper.todoapp.api"
     modelPackage = "net.ripper.todoapp.domain"
+    invokerPackage = "net.ripper.todoapp"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
+    generateModelDocumentation = true
     validateSpec = true
+    generateApiDocumentation = true
     configOptions = [
             dateLibrary: "java8",
             library: "spring-boot",
@@ -89,7 +92,7 @@ dependencies {
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
     compile 'org.openapitools:jackson-databind-nullable:0.1.0'
     compile "javax.validation:validation-api"
-    compile "io.springfox:springfox-swagger2:2.9.2"
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
     compile project(':service')
     compile project(':entities')
 

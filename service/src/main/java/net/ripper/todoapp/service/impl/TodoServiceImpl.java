@@ -6,6 +6,7 @@ import net.ripper.todoapp.entities.User;
 import net.ripper.todoapp.service.TodoService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,8 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Optional<Todo> createTodo(Todo entry) {
+        entry.setDateCreated(LocalDateTime.now());
+        entry.setDateUpdated(LocalDateTime.now());
         return Optional.of(todoRepository.save(entry));
     }
 

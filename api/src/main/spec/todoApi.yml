@@ -3,14 +3,14 @@ info:
   title: Todo entries Management API
   version: 1.0.0
 servers:
-  - url: http://localhost:8082/todoapp/v1
+  - url: http://localhost:8082/
     description: local-dev url
 tags:
   - name: TodoV1
     description: Todo API
 
 paths:
-  /todo:
+  /v1/todo:
     post:
       security:
         - JWT: []
@@ -32,7 +32,7 @@ paths:
                 $ref: "./models/todo/todoentry.yml#/TodoEntry"
         "400":
           description: "invalid data in input"
-  /todo/{id}:
+  /v1/todo/{id}:
     parameters:
       - name: id
         description: "id of the todo entry"

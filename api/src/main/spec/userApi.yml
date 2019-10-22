@@ -3,14 +3,14 @@ info:
   title: User Management API
   version: 1.0.0
 servers:
-  - url: http://localhost:8082/todoapp/v1
+  - url: http://localhost:8082/
     description: local-dev url
 
 tags:
   - name: UserV1
     description: User api
 paths:
-  /user:
+  /v1/user:
     post:
       description: send a username and password to register
       summary: Register a user
@@ -44,7 +44,7 @@ paths:
         "401":
           description: No user logged in
 
-  /user/login:
+  /v1/user/login:
     post:
       summary: Login here
       operationId: "LoginUser"

@@ -1,5 +1,7 @@
-package net.ripper.todoapp.api;
+package net.ripper.todoapp.api.impl;
 
+import io.swagger.annotations.Api;
+import net.ripper.todoapp.api.TodoV1Api;
 import net.ripper.todoapp.domain.TodoEntry;
 import net.ripper.todoapp.entities.Todo;
 import net.ripper.todoapp.entities.User;
@@ -8,12 +10,14 @@ import net.ripper.todoapp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
+@Api(tags = "TodoV1")
 public class TodoController implements TodoV1Api {
     private final TodoService todoService;
     private final UserService userService;
@@ -40,12 +44,19 @@ public class TodoController implements TodoV1Api {
 
     private TodoEntry toEntry(Todo t) {
         return new TodoEntry()
-                .dateCreated(t.getDateCreated().toString())
-                .dateUpdated(t.getDescription())
+                .dateUpdated(t.getDateUpdated().toString())
                 .dateCreated(t.getDateCreated().toString())
                 .description(t.getDescription())
                 .title(t.getTitle())
+                .doneStatus(t.isDoneStatus())
+                .user(toUserEntry(t.getOwnerUser()))
                 .id(t.getId());
+    }
+
+    private net.ripper.todoapp.domain.User toUserEntry(User u) {
+        return new net.ripper.todoapp.domain.User()
+                .id(u.getId())
+                .username(u.getUsername());
     }
 
     @Override

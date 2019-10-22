@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = "net.ripper.todoapp")
+@SpringBootApplication(scanBasePackages = {"net.ripper.todoapp"})
 @EnableJpaRepositories(basePackages = {"net.ripper.todoapp.dao"})
 public class App {
 
