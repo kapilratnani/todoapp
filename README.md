@@ -79,5 +79,5 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 - [ ] Unit Tests and Integration tests separation
 - [ ] Custom spring templates for OpenAPI generator
 - [ ] Config module implementation
-
-
+- [ ] Integrate Jacoco or sonar for code quality reports
+- [ ] Git hooks to format code before code
