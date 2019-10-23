@@ -74,4 +74,8 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 - Change directory to `:db` and run `flyway -configFiles=flyway-{env}.conf migrate` to apply migrations in `:db\sql` folder
 - Refer flyway documentation on how to create new migrations. 
 
+## Todo
+- [ ] JWT security
+- [ ] Unit Tests and Integration tests separation
+
 
