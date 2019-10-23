@@ -77,5 +77,7 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 ## Todo
 - [ ] JWT security
 - [ ] Unit Tests and Integration tests separation
+- [ ] Custom spring templates for OpenAPI generator
+- [ ] Config module implementation
 
 
