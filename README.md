@@ -74,10 +74,16 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 - Change directory to `:db` and run `flyway -configFiles=flyway-{env}.conf migrate` to apply migrations in `:db\sql` folder
 - Refer flyway documentation on how to create new migrations. 
 
+## Jacoco and Sonar
+- Use `start-sonar.sh` script to start a local sonar instance at port 9001
+- Add `systemProp.sonar.host.url=http://localhost:9001` to `~/.gradle/gradle.properties`
+- Run gradle task `test` followed by `sonarqube`
+- Open sonar UI running at `http://localhost:9001` to see code quality results
+
 ## Todo
 - [ ] JWT security
 - [ ] Unit Tests and Integration tests separation
 - [ ] Custom spring templates for OpenAPI generator
 - [ ] Config module implementation
-- [ ] Integrate Jacoco or sonar for code quality reports
-- [ ] Git hooks to format code before code
+- [X] Integrate Jacoco or sonar for code quality reports
+- [X] Git hooks to format code before code

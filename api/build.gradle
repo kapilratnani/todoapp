@@ -1,19 +1,8 @@
 plugins {
     id "org.openapi.generator" version "4.1.1"
-    id 'org.springframework.boot' version '2.1.9.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
 }
-
-group = 'net.ripper.todoapp'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 sourceSets.main.java.srcDirs = ['build/generated/src/main/java','src/main/java']
-
-repositories {
-    jcenter()
-}
 
 task generateUserApi(
         type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask,
@@ -102,6 +91,8 @@ dependencies {
             //'org.bouncycastle:bcprov-jdk15on:1.60',
             'io.jsonwebtoken:jjwt-jackson:0.10.7'
 }
+
+build.dependsOn codegen
 
 bootJar {
     enabled = false

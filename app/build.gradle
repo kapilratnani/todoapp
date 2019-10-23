@@ -1,17 +1,9 @@
-plugins {
-    id 'org.springframework.boot' version '2.1.9.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
+bootJar {
+    enabled = true
 }
 
-group = 'net.ripper.todoapp'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+jar {
+    enabled = true
 }
 
 dependencies {
@@ -21,4 +13,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile('org.postgresql:postgresql')
     compile project(':api')
+}
+
+springBoot {
+    mainClassName = 'net.ripper.todoapp.App'
 }
