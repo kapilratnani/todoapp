@@ -87,12 +87,15 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
     - Present 
     - Null (i.e. {"a":null})
   In case of PATCH request the Absent field is supposed to retain the current value. Present or explicit Null should update the value.
-- For Serialization/Deserialization of JsonNullable Jackson ObjectMapper is configured in 
+- Serialization/Deserialization of JsonNullable, Jackson ObjectMapper is configured in `net.ripper.todoapp.api.config.JacksonObjectMapperConfigurer`
+- Hibernate needs a custom ValueExtractor to extract values and apply constraints. It is configured in `net.ripper.todoapp.api.config.ValidationConfigurer`
 
 ## Todo
 - [X] JWT security
 - [ ] Unit Tests and Integration tests separation
 - [ ] Custom spring templates for OpenAPI generator
 - [ ] Config module implementation
+- [ ] Complete Docker config
+- [ ] Add Caching
 - [X] Integrate Jacoco or sonar for code quality reports
 - [X] Git hooks to format code before code
