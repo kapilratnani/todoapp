@@ -66,7 +66,7 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 ## Swagger Setup
 - Swagger UI is available at `http://localhost:8083/swagger-ui.html`, via `io.springfox:springfox-swagger-ui'
 - Swagger API docs at `http://localhost:8083/v2/api-docs`
-- Swagger Docket config and API info is configured at `net.ripper.todoapp.api.config.SwaggerConfig`
+- Swagger Docket config and API info is configured at `net.ripper.todoapp.api.config.SwaggerConfigurer`
 - Tags are used to group APIs. an additional `@Api(tags=aTag)' is needed on the Controller implementation for correct grouping.
 
 ## Flyway DB Migrations

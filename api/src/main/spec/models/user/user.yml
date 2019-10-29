@@ -7,5 +7,5 @@ User:
       type: string
     date_created:
       type: string
-      format: date
+      format: dateTime
 

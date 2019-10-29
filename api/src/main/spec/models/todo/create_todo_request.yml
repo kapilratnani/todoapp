@@ -1,0 +1,11 @@
+CreateTodoRequest:
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      maxLength: 200
+    description:
+      type: string
+      maxLength: 500
+      nullable: true

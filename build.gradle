@@ -34,7 +34,7 @@ subprojects {
     apply from: rootProject.file('gradle/install-git-hooks.gradle')
 
     jacoco {
-        toolVersion = "0.8.0"
+        toolVersion = "0.8.5"
     }
 
     repositories {

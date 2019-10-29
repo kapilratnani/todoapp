@@ -16,6 +16,7 @@ public class User {
     private int id;
     private String username;
     private String password;
+    @Column(updatable = false)
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;
 

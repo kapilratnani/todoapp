@@ -20,6 +20,7 @@ public class Todo {
     private int id;
     private String title;
     private String description;
+    @Column(updatable = false)
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;
     private boolean doneStatus;

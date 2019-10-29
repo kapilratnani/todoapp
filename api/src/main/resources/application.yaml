@@ -1,0 +1,9 @@
+spring:
+  server:
+    port: 8083
+
+security:
+  jwt:
+    token:
+      secret-key: DA3tLivU2HZzvXysOq7mkXvCjm0rkeitGmdDJutbamyCFtLMP7XSp3ZlEQdrrhRAaV7DqYlQEj2h0dCq33G1qAnG3zKddxznpj0bMlVfGa8mJs18lin2HpvlRzDmfHmu
+      expire-length: 3600000

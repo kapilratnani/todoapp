@@ -18,6 +18,7 @@ public class UserProfile {
     private String name;
     private String picUrl;
     private String timeZone;
+    @Column(updatable = false)
     private LocalDateTime dateCreated;
     private LocalDateTime dateUpdated;
 }

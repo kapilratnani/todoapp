@@ -1,0 +1,13 @@
+UpdateTodoRequest:
+  properties:
+    title:
+      type: string
+      maxLength: 200
+      nullable: true
+    description:
+      type: string
+      maxLength: 500
+      nullable: true
+    done_status:
+      type: boolean
+      nullable: true

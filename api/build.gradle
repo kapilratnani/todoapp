@@ -28,7 +28,7 @@ task generateUserApi(
             reactive:false,
             useBeanValidation:true,
             performBeanValidation:true,
-            useOptional:false,
+            useOptional:true,
             serviceInterface:true,
             serviceImplementation:false,
             hideGenerationTimestamp:true,
@@ -59,7 +59,7 @@ task generateTodoApi(type: org.openapitools.generator.gradle.plugin.tasks.Genera
             reactive:false,
             useBeanValidation:true,
             performBeanValidation:true,
-            useOptional:false,
+            useOptional:true,
             serviceInterface:true,
             serviceImplementation:false,
             hideGenerationTimestamp:true,
@@ -75,7 +75,8 @@ task codegen(dependsOn: ['generateTodoApi', 'generateUserApi'],
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-    //compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-validation'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     compile "io.springfox:springfox-swagger2:2.9.2"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"

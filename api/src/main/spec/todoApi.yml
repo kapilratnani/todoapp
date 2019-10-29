@@ -22,7 +22,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "./models/todo/todoentry.yml#/TodoEntry"
+              $ref: "./models/todo/create_todo_request.yml#/CreateTodoRequest"
       responses:
         "201":
           description: "Todo entry created"
@@ -67,7 +67,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "./models/todo/todoentry.yml#/TodoEntry"
+              $ref: "./models/todo/update_todo_request.yml#/UpdateTodoRequest"
       responses:
         "200":
           description: successfully updated
@@ -80,4 +80,5 @@ components:
     JWT:
       scheme: bearer
       type: http
+      bearerFormat: JWT
 

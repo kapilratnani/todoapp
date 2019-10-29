@@ -70,6 +70,4 @@ components:
     JWT:
       scheme: bearer
       type: http
-
-
-
+      bearerFormat: JWT

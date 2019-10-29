@@ -14,7 +14,3 @@ dependencies {
     compile('org.postgresql:postgresql')
     compile project(':api')
 }
-
-springBoot {
-    mainClassName = 'net.ripper.todoapp.App'
-}

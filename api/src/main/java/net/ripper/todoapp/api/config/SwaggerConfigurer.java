@@ -19,7 +19,7 @@ import java.util.Collections;
 
 @EnableSwagger2
 @Configuration
-public class SwaggerConfig {
+public class SwaggerConfigurer {
     @Bean
     public Docket todoApi(){
         return new Docket(DocumentationType.SWAGGER_2)
