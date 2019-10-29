@@ -80,8 +80,17 @@ Gradle Multimodule project. All directories at level 1 are gradle modules.
 - Run gradle task `test` followed by `sonarqube`
 - Open sonar UI running at `http://localhost:9001` to see code quality results
 
+## JsonNullable and Hibernate Validator
+- Nullable fields in OpenAPI schema are wrapped in JsonNullable<T>
+- Fields in JSON can be in 3 states
+    - Absent (i.e. missing in the request)
+    - Present 
+    - Null (i.e. {"a":null})
+  In case of PATCH request the Absent field is supposed to retain the current value. Present or explicit Null should update the value.
+- For Serialization/Deserialization of JsonNullable Jackson ObjectMapper is configured in 
+
 ## Todo
-- [ ] JWT security
+- [X] JWT security
 - [ ] Unit Tests and Integration tests separation
 - [ ] Custom spring templates for OpenAPI generator
 - [ ] Config module implementation

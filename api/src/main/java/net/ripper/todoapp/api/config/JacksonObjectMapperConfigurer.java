@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class BeanConfig {
+public class JacksonObjectMapperConfigurer {
     /**
      * Custom ObjectMapper
      * adds {@link JsonNullableModule} to serialize/deserialize values wrapped by
