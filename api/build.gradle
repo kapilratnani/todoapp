@@ -95,10 +95,6 @@ dependencies {
 
 build.dependsOn codegen
 
-bootJar {
-    enabled = false
-}
-
 jar {
     enabled = true
 }
